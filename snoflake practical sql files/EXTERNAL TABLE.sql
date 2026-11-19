@@ -30,6 +30,7 @@ FILE_FORMAT=CSV_FORMAT;
 
 LIST @CUSTOMER_STAGE;
 
+--method 1 of creating external table
 CREATE OR REPLACE EXTERNAL TABLE ext_sales_raw
 LOCATION=@CUSTOMER_STAGE
 FILE_FORMAT=CSV_FORMAT;
@@ -37,7 +38,7 @@ FILE_FORMAT=CSV_FORMAT;
 SELECT *, VALUE:c1::NUMBER AS customer_id,VALUE:c2::VARCHAR AS customer_name FROM ext_sales_raw
 
 
-
+--method 2 of creating external table
 CREATE EXTERNAL TABLE EXT_SALES_1
 (
   CUSTOMER_ID NUMBER AS (VALUE:c1::NUMBER),
