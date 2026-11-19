@@ -50,6 +50,7 @@ SHOW PIPES;
 DESC PIPE CUSTOMER_PIPE;
 
 
+--To Monitor File Loads using copy_history-(is time range me kon-kon si files load hui,kitni rows thi etc hai)
 SELECT *
 FROM TABLE(
  INFORMATION_SCHEMA.COPY_HISTORY(
@@ -58,6 +59,7 @@ FROM TABLE(
  )
 );
 
+--kon-kon si files load nahi hui ?? or load hui ??
 SELECT *
 FROM TABLE(
  INFORMATION_SCHEMA.COPY_HISTORY(
@@ -67,7 +69,9 @@ FROM TABLE(
 )
 WHERE STATUS <> 'Loaded';
 
-SELECT *
+
+--Validata load Errors , bad files
+SELE CT *
 FROM TABLE(
  VALIDATE(
  CUSTOMER_NEW,
