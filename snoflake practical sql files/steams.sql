@@ -15,9 +15,9 @@ on table customers;
 
 select * from cust_stream
 
--- standard stream 
-
--- append only 
+-- Types of Streams
+-- 1.standard stream 
+-- 2.append only 
 
 INSERT 
 
